@@ -59,15 +59,19 @@
           <p>Transaksi Penjualan</p>
         </a>
       </li>
+      <li class="nav-header">Data Supplier</li>
+        <li class="nav-item">
+            <a href="{{ url('/supplier') }}" class="nav-link {{ ($activeMenu == 'supplier')? 'active' : '' }} ">
+                <i class="nav-icon far fa-user"></i>
+                <p>Data Supplier</p>
+            </a>
+        </li>
     </ul>
   </nav>
 </div>
 
 
-
-
-{{-- 
-
+{{--
 <div class="sidebar">
     <!-- Sidebar user (optional) -->
     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
