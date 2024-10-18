@@ -16,7 +16,7 @@ class UserController extends Controller
    // JS 6
    public function create_ajax()
    {
-       $level = ModelsLevelModel::select('level_id', 'level_name')->get();
+       $level = ModelsLevelModel::select('level_id', 'level_nama')->get();
        return view('user.create_ajax')
            ->with('level', $level);
    }
@@ -57,7 +57,7 @@ class UserController extends Controller
    public function edit_ajax(string $id)
    {
        $user = UserModel::find($id);
-       $level = ModelsLevelModel::select('level_id', 'level_name')->get();
+       $level = ModelsLevelModel::select('level_id', 'level_nama')->get();
        return view('user.edit_ajax', ['user' => $user, 'level' => $level]);
    }
    public function update_ajax(Request $request, $id)

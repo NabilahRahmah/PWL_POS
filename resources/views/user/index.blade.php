@@ -1,4 +1,5 @@
 @extends('layouts.template')
+
 @section('content')
 <div class="card card-outline card-primary">
     <div class="card-header">
@@ -8,7 +9,6 @@
             <button onclick="modalAction('{{ url('user/create_ajax') }}')" class="btn btn-sm btn-success mt-1">Tambah Ajax</button>
         </div>
     </div>
-
     <div class="card-body">
         @if (session('success'))
             <div class="alert alert-success">{{ session('success') }}</div>
@@ -25,7 +25,7 @@
                         <select class="form-control" id="level_id" name="level_id">
                             <option value="">- Semua -</option>
                             @foreach ($level as $item)
-                                <option value="{{ $item->level_id }}">{{ $item->level_nama }}</option>
+                                <option value="{{ $item->level_id }}">{{ $item->level_name }}</option>
                             @endforeach
                         </select>
                         <small class="form-text text-muted">Level Pengguna</small>
@@ -79,7 +79,7 @@ var dataUser;
                 { data: "DT_RowIndex", className: "text-center", orderable: false, searchable: false },  // Nomor urut otomatis
                 { data: "username", orderable: true, searchable: true },
                 { data: "nama", orderable: true, searchable: true },
-                { data: "level.level_nama", orderable: false, searchable: false },  // Data level dari relasi
+                { data: "level.level_name", orderable: false, searchable: false },  // Data level dari relasi
                 { data: "aksi", orderable: false, searchable: false }
             ]
         });

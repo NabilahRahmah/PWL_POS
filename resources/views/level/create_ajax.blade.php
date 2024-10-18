@@ -1,37 +1,24 @@
-<form action="{{ url('/user/ajax') }}" method="POST" id="form-tambah">
+<form action="{{ url('/level/ajax') }}" method="POST" id="form-tambah">
     @csrf
     <div id="modal-master" class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Tambah Data User</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Tambah Data Level</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                         aria-hidden="true">&times;</span></button>
             </div>
             <div class="modal-body">
                 <div class="form-group">
-                    <label>Level Pengguna</label>
-                    <select name="level_id" id="level_id" class="form-control" required>
-                        <option value="">- Pilih Level -</option>
-                        @foreach ($level as $l)
-                            <option value="{{ $l->level_id }}">{{ $l->level_name }}</option>
-                        @endforeach
-                    </select>
-                    <small id="error-level_id" class="error-text form-text text-danger"></small>
+                    <label>Level Kode</label>
+                    <input value="" type="text" name="level_kode" id="level_kode" class="form-control"
+                        required>
+                    <small id="error-level_kode" class="error-text form-text text-danger"></small>
                 </div>
                 <div class="form-group">
-                    <label>Username</label>
-                    <input value="" type="text" name="username" id="username" class="form-control" required>
-                    <small id="error-username" class="error-text form-text text-danger"></small>
-                </div>
-                <div class="form-group">
-                    <label>Nama</label>
-                    <input value="" type="text" name="nama" id="nama" class="form-control" required>
-                    <small id="error-nama" class="error-text form-text text-danger"></small>
-                </div>
-                <div class="form-group">
-                    <label>Password</label>
-                    <input value="" type="password" name="password" id="password" class="form-control" required>
-                    <small id="error-password" class="error-text form-text text-danger"></small>
+                    <label>Level Nama</label>
+                    <input value="" type="text" name="level_name" id="level_name" class="form-control"
+                        required>
+                    <small id="error-level_name" class="error-text form-text text-danger"></small>
                 </div>
             </div>
             <div class="modal-footer">
@@ -45,25 +32,15 @@
     $(document).ready(function() {
         $("#form-tambah").validate({
             rules: {
-                level_id: {
-                    required: true,
-                    number: true
-                },
-                username: {
+                level_kode: {
                     required: true,
                     minlength: 3,
-                    maxlength: 20
+                    maxlength: 10
                 },
-                nama: {
+                level_name: {
                     required: true,
-                    minlength: 3,
                     maxlength: 100
                 },
-                password: {
-                    required: true,
-                    minlength: 6,
-                    maxlength: 20
-                }
             },
             submitHandler: function(form) {
                 $.ajax({
